@@ -9,7 +9,7 @@ const searchImages = async (term) => {
       Authorization: "Client-ID DDE7U1maaYOps2L8qip6v4ES2K_FybMxkole-1xGPrc",
     },
   });
-  console.log(response.data.results);
+  return response.data.results;
 };
 
 export default searchImages;
