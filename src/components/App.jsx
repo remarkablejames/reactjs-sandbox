@@ -1,13 +1,18 @@
-import ImageList from "./ImageList";
 import SearchBar from "./SearchBar";
-import ImageShow from "./ImageShow";
+import { useState } from "react";
+import searchImages from "../api";
 function App() {
+  const [term, setTerm] = useState("");
+  const handleSubmit = (term) => {
+    searchImages(term);
+    setTerm(term);
+  };
+
   return (
     <div>
       <h1>My React App</h1>
-      <ImageList />
-      <SearchBar />
-      <ImageShow />
+      <SearchBar onSubmit={handleSubmit} />
+      <p>The user searched for {term}</p>
     </div>
   );
 }
